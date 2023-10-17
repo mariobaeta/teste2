@@ -53,7 +53,7 @@ with st.sidebar:
 
 def prepare_history_visualization():
     history, instance = hist.get(ticker, init_date=init_date, end_date=end_date) if init_date else hist.get(ticker)
-    print("CURRENT PRICE ->", history["Close"].iat[-1])
+    print("CURRENT PRICE ->", history["Close"]) # .iat[-1])
     bollinger_figure = bollinger.get(ticker, history)
 
     current_value.metric("Current Value", f"R$ {round(history['Close'][history.index.max()],2)}", f"{round((history['Close'][history.index.max()] / history['Close'][history.index[-2]] - 1) * 100, 2)}%")
