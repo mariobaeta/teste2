@@ -1,6 +1,15 @@
 # @st.cache
 import yfinance as yf
 import datetime
+# mão pertence
+def get(ticker: str, init_date: datetime = None, end_date: datetime = None):
+    stock = yf.Ticker(ticker + ".SA")
+    hist = stock.history(period="max")
+
+    # Adicione uma instrução de impressão para verificar os dados
+    print(hist)
+
+# não pertence
 
 def get(ticker: str, init_date: datetime = None, end_date: datetime = None):
 
