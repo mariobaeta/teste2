@@ -52,6 +52,8 @@ with st.sidebar:
         )
 
 def prepare_history_visualization():
+    history, instance = hist.get(ticker, init_date=init_date, end_date=end_date) if init_date else hist.get(ticker)
+    
     if not history.empty and len(history) > 0:
         print("CURRENT PRICE ->", history["Close"].iat[-1])
         bollinger_figure = bollinger.get(ticker, history)
